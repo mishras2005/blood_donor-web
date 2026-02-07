@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    background: linear-gradient(270deg,#ff9a9e,#fad0c4,#ffdde1,#fbc2eb);
+    background-size:600% 600%;
+    animation:bgmove 12s infinite;
+}
+
+@keyframes bgmove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+    animation:pop 1s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0)}
+    to{transform:scale(1)}
+}
+
+img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid pink;
+    margin-bottom:15px;
+}
+
+h1{
+    color:#e91e63;
+}
+
+/* Floating emojis */
+.float{
+    position:absolute;
+    font-size:30px;
+    animation:rise linear infinite;
+}
+
+@keyframes rise{
+    from{transform:translateY(100vh)}
+    to{transform:translateY(-20vh)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- 👇 CHANGE THESE TWO LINES ONLY -->
+
+    <img src="C:\Users\ADMIN\Downloads\image.jpg">
+    <h1>🎂 Happy Birthday Shubham 🎉</h1>
+
+</div>
+
+<script>
+/* Emoji animation */
+const icons=["🎈","🎉","💖","🍫","🎂"];
+
+for(let i=0;i<20;i++){
+    let el=document.createElement("div");
+    el.className="float";
+    el.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+    el.style.left=Math.random()*100+"%";
+    el.style.animationDuration=(4+Math.random()*5)+"s";
+
+    document.body.appendChild(el);
+}
+</script>
+
+</body>
+</html>
